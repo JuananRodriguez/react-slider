@@ -1,7 +1,7 @@
 import React from 'react'
 import Background,{IMG} from './Background'
 import StyledComponent from 'styled-components'
-import { Opacity } from '../Transitions/Opacity'
+import { Opacity } from '../Animations/Opacity'
 
 const Slide = StyledComponent('section')`
     height: 100%;
