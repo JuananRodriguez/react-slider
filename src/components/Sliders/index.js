@@ -1,17 +1,13 @@
 import React from 'react'
 import Slide from './Slide'
 import StyledComponent from 'styled-components';
-import { CSSTransition, Transition } from 'react-transition-group';
-import "./style.css"
-
+import { CSSTransition } from 'react-transition-group';
 
 const Wrap = StyledComponent('div')`
     position: relative;
     height: ${p=>p.height};
     width: ${p=>p.width};
     overflow:hidden;
-
-
 `;
 
 class Slider extends React.Component{
@@ -56,7 +52,7 @@ class Slider extends React.Component{
                             in={currentSlide === index}
                             timeout={3000}
                             classNames="slide"
-                            unmountOnExit
+                            // unmountOnExit
                         >
                             <Slide
                                 className={'slide'}

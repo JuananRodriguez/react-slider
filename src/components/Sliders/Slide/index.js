@@ -1,6 +1,7 @@
 import React from 'react'
 import Background,{IMG} from './Background'
 import StyledComponent from 'styled-components'
+import { Opacity } from '../Transitions/Opacity'
 
 const Slide = StyledComponent('section')`
     height: 100%;
@@ -37,12 +38,12 @@ class Index extends React.Component{
     render(){
         const { background, to, content, title } = this.state;
         return(
-            <Slide active = {this.props.active}>
-                <Background img={background}/>
+            <Opacity active = {this.props.active}>
+                { background && <Background img={background}/> }
                 <h2>{title}</h2>
                 <p>{content}</p>
                 <button>{to}</button>
-            </Slide>
+            </Opacity>
 
         )
     }
