@@ -12,19 +12,28 @@ const Wrap = StyledComponent('div')`
 
 class Slider extends React.Component{
 
+    static defaultProps = {
+        content: [],
+        current: 0,
+        time: 500,
+        timeOut: 3000,
+        height: '200px',
+        width:'200px'
+    };
+
     state={
-        currentSlide: null,
-        slidesData: null
+        currentSlide: this.props.current,
+        slidesData: this.props.content
     };
 
     interval = null;
 
-    componentWillMount(){
-        this.setState({
-            currentSlide: this.props.current || 0,
-            slidesData: this.props.content || []
-        })
-    }
+    // componentWillMount(){
+    //     this.setState({
+    //         currentSlide: this.props.current || 0,
+    //         slidesData: this.props.content || []
+    //     })
+    // }
     componentDidMount(){
         //Añadir evento a las teclas de dirección para subir o bajar slide (++ o --)
         this.interval = setInterval(this.upSlide, 4000)
@@ -40,7 +49,7 @@ class Slider extends React.Component{
 
     render(){
         const {slidesData, currentSlide} = this.state;
-        const {height, width} = this.props;
+        const {height, width, timeOut, time} = this.props;
         return(
             <Wrap
                 height={ height }
@@ -50,7 +59,7 @@ class Slider extends React.Component{
                     slidesData.map((slide, index)=>
                         <CSSTransition
                             in={currentSlide === index}
-                            timeout={3000}
+                            timeout={timeOut}
                             classNames="slide"
                             // unmountOnExit
                         >
@@ -58,6 +67,8 @@ class Slider extends React.Component{
                                 className={'slide'}
                                 key={`slide-num-${index}`}
                                 content={slide}
+                                // transition={500}
+                                time={time}
                                 active={currentSlide === index}
                             />
                         </CSSTransition>

@@ -9,8 +9,9 @@ export default StyledComponent('section')`
     left:0;
     right:0;
     bottom:0;
-    // transform: translateY(${p=>p.active ? 0 : 100}%);
-    // transition: transform 0.5ms;
+    z-index: ${p=>p.active ? 100 : 0};
+    opacity: ${p=>p.active ? 1 : 0};
+    
     *:not(div){
         color: #fff;
         position: relative
