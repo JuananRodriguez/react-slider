@@ -1,7 +1,7 @@
-import {BottomToTop} from './BottomToTop';
+import {LeftToRight} from './LeftToRight';
 import {Opacity} from './Opacity';
 
 export {
-    BottomToTop,
+    LeftToRight,
     Opacity
 }

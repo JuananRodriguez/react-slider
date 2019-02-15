@@ -4,16 +4,13 @@ import Slide from './Base';
 export const Opacity = StyledComponent(Slide)`
     &.slide-enter,
     &.slide-enter-active,
-    &.slide-enter-done
     &.slide-exit,
-    &.slide-exit-active,
-    &.slide-exit-done {
+    &.slide-exit-active {
        transition: opacity ${p=>p.time}ms ease-out;
     }
 
     &.slide-enter,
-    &.slide-exit-active,
-    &.slide-exit-done{
+    &.slide-exit-active{
         opacity: 0;
     }
     

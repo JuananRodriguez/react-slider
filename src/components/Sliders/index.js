@@ -18,7 +18,8 @@ class Slider extends React.Component{
         time: 500,
         timeOut: 3000,
         height: '200px',
-        width:'200px'
+        width:'200px',
+        animation: 'Opacity'
     };
 
     state={
@@ -49,7 +50,7 @@ class Slider extends React.Component{
 
     render(){
         const {slidesData, currentSlide} = this.state;
-        const {height, width, timeOut, time} = this.props;
+        const {height, width, timeOut, time, animation} = this.props;
         return(
             <Wrap
                 height={ height }
@@ -61,13 +62,13 @@ class Slider extends React.Component{
                             in={currentSlide === index}
                             timeout={timeOut}
                             classNames="slide"
-                            // unmountOnExit
+                            unmountOnExit
                         >
                             <Slide
                                 className={'slide'}
                                 key={`slide-num-${index}`}
                                 content={slide}
-                                // transition={500}
+                                animation={animation}
                                 time={time}
                                 active={currentSlide === index}
                             />

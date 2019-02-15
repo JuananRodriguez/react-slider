@@ -1,13 +1,15 @@
 import React from 'react'
 import Background from './Background'
-import { Opacity, BottomToTop } from '../Animations'
+import * as Animations from '../Animations'
 
 class Index extends React.PureComponent{
     render(){
         const { background, to, content, title } = this.props.content;
-        const { time, active } = this.props;
+        const { time, active, animation } = this.props;
+        console.log(animation);
+        const Slide = Animations[animation];
         return(
-            <BottomToTop
+            <Slide
                 time={time}
                 active = {active}
             >
@@ -15,7 +17,7 @@ class Index extends React.PureComponent{
                 <h2>{title}</h2>
                 <p>{content}</p>
                 <button>{to}</button>
-            </BottomToTop>
+            </Slide>
         )
     }
 }
