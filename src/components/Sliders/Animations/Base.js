@@ -10,7 +10,7 @@ export default StyledComponent('section')`
     right:0;
     bottom:0;
     z-index: ${p=>p.active ? 100 : 0};
-    opacity: ${p=>p.active ? 1 : 0};
+    // opacity: ${p=>p.active ? 1 : 0};
     
     *:not(div){
         color: #fff;
